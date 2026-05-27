@@ -2,8 +2,8 @@ name: Post AI & Crypto News
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Every 3 hours (UTC). Use crontab.guru for custom
-  workflow_dispatch:  # Allows manual trigger
+    - cron: '0 */3 * * *'   # Every 3 hours
+  workflow_dispatch:
 
 jobs:
   post-news:
@@ -22,5 +22,5 @@ jobs:
       - name: Run news poster
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.-TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python news_poster.py
