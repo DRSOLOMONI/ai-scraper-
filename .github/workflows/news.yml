@@ -21,6 +21,6 @@ jobs:
       
       - name: Run news poster
         env:
-          TELEGRAM_TOKEN: ${{ secrets.8781250860:AAEHyXufx-EQe2EFqRt9IdZ4bGjwqbK3-fk }}
-          TELEGRAM_CHAT_ID: ${{ secrets.-1003137351856 }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.-TELEGRAM_CHAT_ID }}
         run: HypeXolo
