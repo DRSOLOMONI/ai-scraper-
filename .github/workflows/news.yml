@@ -1,0 +1,26 @@
+name: Post AI & Crypto News
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # Every 3 hours (UTC). Use crontab.guru for custom
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  post-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Run news poster
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python news_poster.py
